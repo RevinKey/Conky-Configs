@@ -1,0 +1,40 @@
+double_buffer yes
+update_interval 1
+background yes
+own_window yes
+own_window_transparent yes
+own_window_type normal
+#own_window_type root
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+use_xft yes
+override_utf8_locale no
+xftfont Dejavu Sans:size=9
+xftalpha 0.8
+draw_shades no
+draw_outline no
+draw_borders no
+uppercase no
+use_spacer no
+
+border_margin 0
+border_width 0
+
+default_color white
+default_outline_color black
+
+alignment bottom_left
+gap_x 5
+gap_y 5
+
+TEXT
+${font Sans:size=11}
+Intel i3 ${color}${freq_g cpu0}GHz${font Orange: size=8}${font}${color}
+${font Impact:size=9}${color}
+${color #418F00}CORE${offset 25}PERC${offset 23}TEMP
+${font Sans:size=8}${color}Core 1: ${color #E68600}${offset 10}${cpu cpu1}%${color}${alignc}${execi 1 sensors | grep "Core 0" | cut -d "+" -f2 | cut -c1-4} C
+Core 2: ${color #E68600}${offset 10}${cpu cpu2}%${color}${alignc}${execi 1 sensors | grep "Core 1" | cut -d "+" -f2 | cut -c1-4} C
+Core 3: ${color #E68600}${offset 10}${cpu cpu3}%${color}${alignc}${execi 1 sensors | grep "Core 2" | cut -d "+" -f2 | cut -c1-4} C
+Core 4: ${color #E68600}${offset 10}${cpu cpu4}%${color}${alignc}${execi 1 sensors | grep "Core 3" | cut -d "+" -f2 | cut -c1-4} C
+${font Telegraphem:size=8}${color}------------
+Top Proccess${color #E68600}${top cpu 1} ${top name 1}
