@@ -1,0 +1,36 @@
+double_buffer yes
+update_interval 1
+background yes
+
+own_window yes
+own_window_transparent yes
+own_window_type override
+#own_window_type root
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+
+use_xft yes
+override_utf8_locale no
+xftfont Dejavu Sans:size=9
+xftalpha 0.8
+draw_shades no
+draw_outline no
+draw_borders no
+uppercase no
+use_spacer no
+
+border_margin 0
+border_width 0
+
+default_color black
+default_outline_color black
+
+alignment bottom_right
+gap_x 0
+gap_y 0
+
+TEXT
+${font Telegraphem:size=12}${color #418F00}${execi 1000 cal -3 | cut -c23-43}
+
+${font Orange:size=20}${color #E68600}${time %B}${font Telegraphem:size=18}${color #E68600}${time %e}
+${voffset 10}${font Orange:bold:size=20}${color #ffffff}${time %I:%M}${font bold:size=14}${time %p}
