@@ -1,0 +1,27 @@
+#!/bin/bash
+
+for OUTPUT in $(netstat -upant | grep "tcp\|udp" | grep -v "127.0.0.1\|::1" | gawk '{ print $5 }' | cut -d ":" -f 1 | grep -v '^$' | grep -v "0.0.0.0" | grep -v "65.181.127.*" | grep -v "216.146.*.*" | grep -v "146.255.36.1")
+
+do
+wget --no-verbose -O /home/thedoctor/Desktop/geo/ip http://www.geoip.co/?ip=$OUTPUT
+echo -e "__________________________________________________\n" 
+echo -e "\nIP:  $OUTPUT"
+if [ $OUTPUT == "91.198.22.70" ] 
+then
+	echo "This is DynDNS server"
+elif [ $OUTPUT == "184.25.108.49" ]
+then
+	echo "This is a Comcast ISP server"
+elif [ $OUTPUT == "65.181.127.119" ]
+then
+	echo "This is geoip.co/ server"
+
+else
+cat /home/thedoctor/Desktop/geo/ip | grep "COUNTRY_NAME" | cut -c 28- | rev | cut -c 5- | rev
+cat /home/thedoctor/Desktop/geo/ip | grep "STATE" | cut -c 28- | rev | cut -c 5- | rev
+cat /home/thedoctor/Desktop/geo/ip | grep "CITY" | cut -c 28- | rev | cut -c 5- | rev
+cat /home/thedoctor/Desktop/geo/ip | grep "LATITUDE" | cut -c 28- | rev | cut -c 5- | rev
+cat /home/thedoctor/Desktop/geo/ip | grep "LONGITUDE" | cut -c 28- | rev | cut -c 5- | rev
+rm /home/thedoctor/Desktop/geo/ip
+fi
+done 
