@@ -1,0 +1,35 @@
+double_buffer yes
+update_interval 1
+background yes
+
+own_window yes
+own_window_transparent yes
+own_window_type override
+#own_window_type root
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+
+use_xft yes
+override_utf8_locale no
+xftfont Dejavu Sans:size=9
+xftalpha 0.8
+draw_shades no
+draw_outline no
+draw_borders no
+uppercase no
+use_spacer no
+
+border_margin 0
+border_width 0
+
+default_color white
+default_outline_color black
+
+alignment top_left
+gap_x 0
+gap_y 0
+
+TEXT
+${font Orange:size=10}${color Orange}Network${font Telegraphem:size=8}${color}${addr eth0} 
+${voffset 20}${font Telegraphem:size=8}${color green}RATES=${offset 5}${font Sans:size=6}${color}${alignc}UP:${upspeed eth0}DOWN:${downspeed eth0}
+${font Telegraphem:size=8}${color green}TOTAL=${offset 5}${font Sans:size=6}${color}UP:${alignc}${totalup eth0} DOWN:${alignc}${totaldown eth0}
