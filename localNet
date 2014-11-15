@@ -1,0 +1,34 @@
+use_xft no
+text_buffer_size 2048
+background no
+update_interval 1
+own_window yes 
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar,sticky,skip_pager
+double_buffer yes
+
+maximum_width 500
+draw_shades no
+draw_outline no
+draw_borders no
+color0 ffffff
+color1 000000
+color2 187fe7
+alignment top_left
+gap_x 210
+gap_y 60
+
+TEXT
+
+${color2}Local IP
+${color0}${offset -60}${exec /sbin/ifconfig | grep "inet addr" | grep -v "127.0.0.1"}
+
+${font Santana:size=9}TCP Connections : ${tcp_portmon 1 65535 count}
+
+${voffset -2}${color ffffff}${font Santana:size=10}Interface wlan0 Usage:
+
+${voffset -2}${color0}${font Santana:size=6}DOWN GRAPH:
+${downspeedgraph wlan0 32,200 b7b7b7 f4732d}
+${voffset -2}${color0}UP GRAPH:
+${upspeedgraph wlan0 32,200 b7b7b7 ebff46}
