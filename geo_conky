@@ -1,0 +1,27 @@
+use_xft no
+background no
+update_interval 1
+own_window yes 
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar,sticky,skip_pager
+double_buffer yes
+text_buffer_size 2086
+minimum_size 190 1000
+maximum_width 190
+draw_shades no
+draw_outline no
+draw_borders no
+color0 ffffff
+color1 000000
+color2 187fe7
+alignment bottom_left
+gap_x 0
+gap_y 20
+
+TEXT
+${color2}GEOLOOKUP
+
+Location of Incoming connection
+${color0}
+${execp /home/thedoctor/Desktop/geo/geo.sh}
