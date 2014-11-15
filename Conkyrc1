@@ -1,0 +1,45 @@
+#avoid flicker
+double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+own_window  yes
+own_window_transparent yes
+own_window_type panel
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager 
+
+#borders
+draw_borders no
+border_margin 1
+
+#shades
+draw_shades no
+
+#position
+gap_x 0
+gap_y 0
+alignment top_left
+
+#behaviour
+update_interval 1
+
+#colour
+default_color  white
+color2 9e7a34
+
+#default_shade_color 000000
+own_window_color black
+
+#font
+use_xft yes
+xftfont bauhaus:pixelsize=11
+
+#to prevent window from moving
+use_spacer yes
+#minimum_size 1262 0
+
+#mpd
+mpd_host localhost
+mpd_port 6600
+
+TEXT
+${alignc}Kernel: ${color2}$kernel   |   ${color} Up Time: ${color2}${uptime_short}   |   ${color}Processes: ${color2}$processes  ${color}Running: ${color2}$running_processes   |  ${color}Cpu: ${color2}${cpu cpu1}% - ${cpu cpu2}% - ${cpu cpu3}% - ${cpu cpu4}%     |   ${color}Mem: ${color2}$mem/$memmax - $memperc% ${color} ${membar 6,80}${color2}    |   ${color }Net: ${color2}${font}${downspeed eth0} ${color}  ${downspeedgraph eth0 10,80 AEA08E 9F907D}  ${color 909090} ${totaldown eth0} down   |   ${color2}${upspeed eth0} ${color} ${upspeedgraph eth0 10,80 AEA08E 9F907D}  ${color 909090}${totalup eth0} up ${color2}
